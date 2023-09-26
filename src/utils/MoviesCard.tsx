@@ -9,9 +9,9 @@ import {
 import { Link } from "react-router-dom";
 
 export interface MoviesCardType {
-  Title: string;
-  Poster: string;
-  imdbID: string;
+  Title?: string;
+  Poster?: string;
+  imdbID?: string;
 }
 
 export function MoviesCard({ Title, Poster, imdbID }: MoviesCardType) {
