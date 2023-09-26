@@ -7,6 +7,7 @@ import React, {
 } from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
 import axios from "axios";
+import useBackButton from "../hooks/useBackButton";
 
 const API_URL = `http://www.omdbapi.com/?apikey=${
   import.meta.env.VITE_REACT_APP_API_KEY
@@ -31,7 +32,6 @@ const MovieProvider = ({ children }: MovieProviderPropsType) => {
   const [query, setQuery] = useState<string>("titanic");
   const fetchMovies = async (API_URL: string) => {
     try {
-      console.log({ API_URL });
       const { data } = await axios.get(API_URL);
       setMovies([...data.Search]);
       setIsLoading(false);
@@ -43,8 +43,7 @@ const MovieProvider = ({ children }: MovieProviderPropsType) => {
 
   useEffect(() => {
     setIsLoading(true);
-    if (!query) fetchMovies(API_URL + "titanic");
-    else fetchMovies(API_URL + query);
+    fetchMovies(API_URL + query);
   }, [query]);
 
   return (

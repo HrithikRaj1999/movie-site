@@ -9,9 +9,9 @@ import {
 import { Link } from "react-router-dom";
 
 export interface MoviesCardType {
-  Title: string;
-  Poster: string;
-  imdbID: string;
+  Title?: string;
+  Poster?: string;
+  imdbID?: string;
 }
 
 export function MoviesCard({ Title, Poster, imdbID }: MoviesCardType) {
@@ -26,7 +26,7 @@ export function MoviesCard({ Title, Poster, imdbID }: MoviesCardType) {
             color="blue-gray"
             className="font-medium mb-2 flex items-center justify-center"
           >
-            {Title.split(" ").slice(0, 5).join(" ")}
+            {Title?.split(" ").slice(0, 5).join(" ")}
           </Typography>
         </CardBody>
       </Card>
