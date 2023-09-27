@@ -19,11 +19,12 @@ export interface MoviesCardProp {
 
 export function MoviesCard({ curMovie }: MoviesCardProp) {
   const { imdbID, Poster, Title } = curMovie;
+
   return (
     <Link to={`/movie/${imdbID}`}>
-      <Card className="flex flex-wrap m-4 p-3 w-50 h-[30rem] hover:shadow-2xl hover:bg-neutral-300">
-        <CardHeader shadow={false} floated={false} className="h-[23rem]">
-          <img src={Poster} alt="card-image" />
+      <Card className="flex flex-wrap bg-gray-400  m-4 p-3 w-50 h-[27rem] hover:shadow-2xl hover:bg-neutral-500">
+        <CardHeader shadow={false} floated={false}>
+          <img className="m-2 h-[20rem]" src={Poster} alt="card-image" />
         </CardHeader>
         <CardBody>
           <Typography

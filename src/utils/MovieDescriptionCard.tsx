@@ -3,6 +3,7 @@ import {
   CardHeader,
   CardBody,
   Typography,
+  Spinner,
 } from "@material-tailwind/react";
 
 export interface MovieDescriptionCardType {
@@ -23,7 +24,11 @@ interface MovieDescriptionCardProps {
 const MovieDescriptionCard = ({ movieData }: MovieDescriptionCardProps) => {
   if (!movieData) {
     // Handle the case where movieData is null or undefined
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <Spinner />
+      </div>
+    );
   }
 
   // Access properties of movieData
