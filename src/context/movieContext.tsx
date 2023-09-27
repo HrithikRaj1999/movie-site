@@ -30,6 +30,7 @@ const MovieProvider = ({ children }: MovieProviderPropsType) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [movies, setMovies] = useLocalStorage<object[] | null>("movie", null);
   const [query, setQuery] = useState<string>("titanic");
+  console.log({ movies });
   const fetchMovies = async (API_URL: string) => {
     try {
       const { data } = await axios.get(API_URL);
@@ -37,13 +38,15 @@ const MovieProvider = ({ children }: MovieProviderPropsType) => {
       setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
-      console.log(error);
     }
   };
 
   useEffect(() => {
-    setIsLoading(true);
-    fetchMovies(API_URL + query);
+    const timerOut = setTimeout(() => {
+      setIsLoading(true);
+      fetchMovies(API_URL + query);
+    }, 500);
+    return () => clearTimeout(timerOut);
   }, [query]);
 
   return (
