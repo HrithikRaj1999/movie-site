@@ -7,7 +7,6 @@ import React, {
 } from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
 import axios from "axios";
-import useBackButton from "../hooks/useBackButton";
 
 const API_URL = `http://www.omdbapi.com/?apikey=${
   import.meta.env.VITE_REACT_APP_API_KEY

@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { Params, useParams } from "react-router-dom";
 import MovieDescriptionCard, {
   MovieDescriptionCardType,
 } from "../utils/MovieDescriptionCard";
 import axios from "axios";
-import { useMovie } from "../context/movieContext";
 import { Spinner } from "@material-tailwind/react";
 
 const MovieDescription = () => {
@@ -12,7 +11,7 @@ const MovieDescription = () => {
   const [movieData, setMovieData] = useState<MovieDescriptionCardType | null>(
     null
   );
-  console.log({ movieData });
+
 
   const IMDB_API_URL = `http://www.omdbapi.com/?i=${id}&apikey=${
     import.meta.env.VITE_REACT_APP_API_KEY
