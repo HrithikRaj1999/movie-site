@@ -27,9 +27,7 @@ const MovieDescription = () => {
     getData(IMDB_API_URL);
   }, [id]);
   return movieData === null ? (
-    <h1>
-      <Spinner />
-    </h1>
+    <Spinner />
   ) : (
     <MovieDescriptionCard movieData={movieData} />
   );

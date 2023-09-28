@@ -20,6 +20,7 @@ interface MovieContextType {
   movies: object[] | null;
   isLoading: boolean;
   query: string;
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
   setQuery: React.Dispatch<React.SetStateAction<string>>;
   setMovies: React.Dispatch<React.SetStateAction<object[] | null>>;
 }
@@ -51,7 +52,7 @@ const MovieProvider = ({ children }: MovieProviderPropsType) => {
 
   return (
     <MovieContext.Provider
-      value={{ movies, setMovies, isLoading, query, setQuery }}
+      value={{ movies, setMovies, setIsLoading, isLoading, query, setQuery }}
     >
       {children}
     </MovieContext.Provider>
